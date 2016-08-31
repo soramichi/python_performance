@@ -17,8 +17,6 @@ def main():
     print("init done.")
 
     procs = []
-
-    start = time.time()
     
     for i in range(0, num_procs):
         A = np.random.rand(size, size / num_procs)
@@ -29,7 +27,9 @@ def main():
         procs.append(p)
 
     print("created all threads.")
-        
+
+    start = time.time()
+
     for p in procs:
         p.start()
         
