@@ -5,14 +5,14 @@ import time
 
 # size should be a multiply of num_procs
 size = 8 * 1024
-num_procs = ###
+num_procs = 4
 
 def do_memory_intensive_work(A, B, x, n_mul):
     for _ in range(0, n_mul):
         B = A * x
 
 def main():
-    n_mul = 250
+    n_mul = 40
     
     print("init done.")
 
@@ -27,8 +27,12 @@ def main():
         
         p = mp.Process(target=do_memory_intensive_work, args = (A, B, x, n_mul))
         procs.append(p)
-        p.start()
 
+    print("created all threads.")
+        
+    for p in procs:
+        p.start()
+        
     for p in procs:
         p.join()
 
