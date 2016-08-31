@@ -5,7 +5,7 @@ import time
 
 # size should be a multiply of num_procs
 size = 8 * 1024
-num_procs = 4
+num_procs = ###
 
 def do_memory_intensive_work(A, B, x, n_mul):
     for _ in range(0, n_mul):
